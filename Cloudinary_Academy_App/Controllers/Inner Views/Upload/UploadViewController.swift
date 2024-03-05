@@ -13,7 +13,7 @@ class UploadViewController: UIViewController {
 
     @IBOutlet weak var lbTitle: UILabel!
     @IBOutlet weak var vwUpload: InnerUploadFrame!
-    @IBOutlet weak var vwUploadLarge: InnerUploadFrame!
+    @IBOutlet weak var vwPreProcess: InnerUploadFrame!
     @IBOutlet weak var vwFetchUpload: InnerUploadFrame!
     
     override func viewDidLoad() {
@@ -28,7 +28,7 @@ class UploadViewController: UIViewController {
 
     private func setViews() {
         setUploadView()
-        setUploadLargeView()
+        setPreProcessView()
         setFetchUploadView()
     }
 
@@ -40,12 +40,12 @@ class UploadViewController: UIViewController {
         vwUpload.addGestureRecognizer(tapGesture)
     }
 
-    private func setUploadLargeView() {
-        vwUploadLarge.setTitle(title: "Upload large file")
-        vwUploadLarge.setSubtitle(subtitle: "Share your big files up to 100GB")
+    private func setPreProcessView() {
+        vwPreProcess.setTitle(title: "Pre Process Image")
+        vwPreProcess.setSubtitle(subtitle: "Modify your image before uploading it")
 
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(uploadLargeClicked))
-        vwUploadLarge.addGestureRecognizer(tapGesture)
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(PreProcessClicked))
+        vwPreProcess.addGestureRecognizer(tapGesture)
     }
 
     private func setFetchUploadView() {
@@ -64,9 +64,9 @@ class UploadViewController: UIViewController {
         }
     }
 
-    @objc private func uploadLargeClicked() {
+    @objc private func PreProcessClicked() {
         if let controller = UIStoryboard(name: "Base", bundle: nil).instantiateViewController(identifier: "BaseViewController") as? BaseViewController {
-            controller.type = .UploadLarge
+            controller.type = .PreProcess
             controller.modalPresentationStyle = .fullScreen
             self.present(controller, animated: true, completion: nil)
         }

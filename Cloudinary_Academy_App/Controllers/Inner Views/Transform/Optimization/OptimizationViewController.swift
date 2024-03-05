@@ -39,7 +39,9 @@ class OptimizationViewController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        loadImageData()
+        if type != .PreProcess {
+            loadImageData()
+        }
     }
 
     func setBackButton() {
@@ -49,12 +51,17 @@ class OptimizationViewController: UIViewController {
 
     func setOriginalImageView() {
         var url = cloudinary.createUrl().generate(publicId)
-        if type == .FetchUpload {
-
+        switch type {
+        case .FetchUpload:
             url = cloudinary.createUrl().setType("fetch").generate(publicId)
+            ivOriginal.cldSetImage(url!, cloudinary: cloudinary)
+        case .Optimization:
+            url = cloudinary.createUrl().generate(publicId)
+            ivOriginal.cldSetImage(url!, cloudinary: cloudinary)
+        case .PreProcess:
+            ivOriginal.image = UIImage(named: "yellow_car")
         }
-        
-        ivOriginal.cldSetImage(url!, cloudinary: cloudinary)
+
 
         lbOriginalFormat.isHidden = true
         lbOriginalDimensions.isHidden = true
@@ -63,22 +70,48 @@ class OptimizationViewController: UIViewController {
     }
 
     func setOptimizedImageView() {
-        var url = cloudinary.createUrl().setTransformation(CLDTransformation().setQuality("auto").setFetchFormat("heic").setDpr("auto").setWidth(0.8).setCrop("scale")).generate(publicId)
-        if type == .FetchUpload {
-
+        var url: String!
+        switch type {
+        case .Optimization:
+            url = cloudinary.createUrl().setTransformation(CLDTransformation().setQuality("auto").setFetchFormat("heic").setDpr("auto").setWidth(0.8).setCrop("scale")).generate(publicId)
+            ivOptimized.cldSetImage(url!, cloudinary: cloudinary)
+        case .FetchUpload:
             url = cloudinary.createUrl().setType("fetch").setTransformation(CLDTransformation().setQuality("auto").setFetchFormat("heic").setDpr("auto").setWidth(0.8).setCrop("scale")).generate(publicId)
+            ivOptimized.cldSetImage(url!, cloudinary: cloudinary)
+        case .PreProcess:
+            let preprocessChain = CLDImagePreprocessChain()
+                .addStep(CLDPreprocessHelpers.limit(width: 500, height: 500))
+                .addStep(CLDPreprocessHelpers.rotate(degrees: 0))
+                .addStep(CLDPreprocessHelpers.dimensionsValidator(minWidth: 10, maxWidth: 500, minHeight: 10, maxHeight: 500))
+                .setEncoder(CLDPreprocessHelpers.customImageEncoder(format: EncodingFormat.PNG, quality: 70))
+            cloudinary.createUploader().upload(
+                data: UIImage(named: "yellow_car")!.pngData()!, uploadPreset: "ios_sample", preprocessChain: preprocessChain) { (progress) in
+                    // Handle progress
+              } completionHandler: { (image, error) in
+                  self.ivOptimized.cldSetImage(publicId: (image?.publicId!)!, cloudinary: self.cloudinary)
+                  self.publicId = image!.publicId!
+                  self.loadImageData()
+              }
         }
-        ivOptimized.cldSetImage(url!, cloudinary: cloudinary)
-
         lbOptimizedFormat.isHidden = true
         lbOptimizedDimensions.isHidden = true
         lbOptimizedSize.isHidden = true
     }
 
     @objc func loadImageData() {
-        var originalUrl = cloudinary.createUrl().generate(publicId)!
-        if type == .FetchUpload {
+        var originalUrl: String!
+        var optimizedUrl: String!
+
+        switch type {
+        case .Optimization:
+            originalUrl = cloudinary.createUrl().generate(publicId)!
+            optimizedUrl = cloudinary.createUrl().setTransformation(CLDTransformation().setQuality("auto").setFetchFormat("heic").setDpr("auto").setWidth(0.8).setCrop("scale")).generate(publicId)!
+        case .FetchUpload:
             originalUrl = cloudinary.createUrl().setType("fetch").generate(publicId)!
+            optimizedUrl = cloudinary.createUrl().setType("fetch").setTransformation(CLDTransformation().setQuality("auto").setFetchFormat("heic").setDpr("auto").setWidth(0.8).setCrop("scale")).generate(publicId)!
+        case .PreProcess:
+            originalUrl = cloudinary.createUrl().generate("gfynghsdjtgmznwx1t0d")!
+            optimizedUrl = cloudinary.createUrl().generate(publicId)
         }
         FileUtils.getImageInfo(URL(string: originalUrl)!) { format,size, dimensions  in
             self.lbOriginalFormat.text = "\(format.uppercased()) ⏺"
@@ -88,10 +121,6 @@ class OptimizationViewController: UIViewController {
             self.lbOriginalFormat.isHidden = false
             self.lbOriginalDimensions.isHidden = false
             self.lbOriginalSize.isHidden = false
-        }
-        var optimizedUrl = cloudinary.createUrl().setTransformation(CLDTransformation().setQuality("auto").setFetchFormat("heic").setDpr("auto").setWidth(0.8).setCrop("scale")).generate(publicId)!
-        if type == .FetchUpload {
-            optimizedUrl = cloudinary.createUrl().setType("fetch").setTransformation(CLDTransformation().setQuality("auto").setFetchFormat("heic").setDpr("auto").setWidth(0.8).setCrop("scale")).generate(publicId)!
         }
         FileUtils.getImageInfo(URL(string: optimizedUrl)!) { format, size, dimensions in
             self.lbOptimizedFormat.text = "\(format.uppercased()) ⏺"

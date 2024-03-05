@@ -38,8 +38,8 @@ class BaseViewController: UIViewController {
         case .Upload:
             lbTitle.text = "Upload"
             break
-        case .UploadLarge:
-            lbTitle.text = "Upload Large"
+        case .PreProcess:
+            lbTitle.text = "Pre Process"
             break
         case .FetchUpload:
             lbTitle.text = "Fetch Upload"
@@ -88,10 +88,10 @@ class BaseViewController: UIViewController {
             addChild(currentController)
             vwContainer.addSubview(currentController.view)
             currentController.didMove(toParent: self)
-        case .UploadLarge:
-            let currentController = (UIStoryboard(name: "UploadChoice", bundle: nil).instantiateViewController(identifier: "UploadChoiceController") as! UploadChoiceController)
+        case .PreProcess:
+            let currentController = UIStoryboard(name: "Optimization", bundle: nil).instantiateViewController(identifier: "OptimizationViewController") as! OptimizationViewController
             currentController.view.frame = vwContainer.bounds
-            currentController.type = .UploadLarge
+            currentController.type = .PreProcess
             addChild(currentController)
             vwContainer.addSubview(currentController.view)
             currentController.didMove(toParent: self)
@@ -130,7 +130,7 @@ enum BaseControllerType {
     case Optimization
     case Transform
     case Upload
-    case UploadLarge
+    case PreProcess
     case FetchUpload
     case UploadWidget
     case ImageWidget
@@ -144,4 +144,5 @@ public enum UploadViewType {
 public enum OptimizationViewType {
     case Optimization
     case FetchUpload
+    case PreProcess
 }

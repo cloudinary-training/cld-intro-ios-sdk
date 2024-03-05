@@ -12,7 +12,7 @@
         <!--Upload View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController storyboardIdentifier="UploadViewController" id="Y6W-OH-hqX" customClass="UploadViewController" customModule="Cloudinary_Sample_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="UploadViewController" id="Y6W-OH-hqX" customClass="UploadViewController" customModule="Cloudinary_Academy_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -89,15 +89,15 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="vtM-Kl-hCs">
                                                 <rect key="frame" x="16" y="0.0" width="361" height="603.33333333333337"/>
                                                 <subviews>
-                                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fDr-OC-wuL" customClass="InnerUploadFrame" customModule="Cloudinary_Sample_App" customModuleProvider="target">
+                                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fDr-OC-wuL" customClass="InnerUploadFrame" customModule="Cloudinary_Academy_App" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="361" height="187.66666666666666"/>
                                                         <color key="backgroundColor" name="secondary"/>
                                                     </view>
-                                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9nB-Zz-BF4" customClass="InnerUploadFrame" customModule="Cloudinary_Sample_App" customModuleProvider="target">
+                                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9nB-Zz-BF4" customClass="InnerUploadFrame" customModule="Cloudinary_Academy_App" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="207.66666666666669" width="361" height="187.66666666666669"/>
                                                         <color key="backgroundColor" name="secondary"/>
                                                     </view>
-                                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fQF-0a-hO0" customClass="InnerUploadFrame" customModule="Cloudinary_Sample_App" customModuleProvider="target">
+                                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fQF-0a-hO0" customClass="InnerUploadFrame" customModule="Cloudinary_Academy_App" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="415.33333333333337" width="361" height="188"/>
                                                         <color key="backgroundColor" name="secondary"/>
                                                     </view>
@@ -136,8 +136,8 @@
                     <connections>
                         <outlet property="lbTitle" destination="zFB-po-Deh" id="bpd-fV-SO3"/>
                         <outlet property="vwFetchUpload" destination="fQF-0a-hO0" id="XXG-qr-ffl"/>
+                        <outlet property="vwPreProcess" destination="9nB-Zz-BF4" id="Q85-EJ-M4L"/>
                         <outlet property="vwUpload" destination="fDr-OC-wuL" id="c7w-Fz-e9u"/>
-                        <outlet property="vwUploadLarge" destination="9nB-Zz-BF4" id="kaW-MH-ReX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
