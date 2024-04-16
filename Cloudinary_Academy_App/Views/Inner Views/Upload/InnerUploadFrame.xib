@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="InnerUploadFrame" customModule="Cloudinary_Sample_App" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="InnerUploadFrame" customModule="Cloudinary_Academy_App" customModuleProvider="target">
             <connections>
                 <outlet property="lbSubtitle" destination="dGm-wg-VI2" id="bGb-75-j1k"/>
                 <outlet property="lbTitle" destination="Oe5-7C-DCz" id="9jO-wW-zz7"/>
@@ -46,7 +46,7 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aew-vh-zgD">
                                     <rect key="frame" x="0.0" y="30.666666666666675" width="200" height="56.333333333333343"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Everything starts when you uploads a file" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dGm-wg-VI2">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Everything starts when you upload a file" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dGm-wg-VI2">
                                             <rect key="frame" x="0.0" y="0.0" width="200" height="56.333333333333336"/>
                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -67,7 +67,7 @@
                                 <constraint firstItem="B3d-AO-9tU" firstAttribute="height" secondItem="ulz-zA-MyS" secondAttribute="height" multiplier="0.26" id="y6B-6z-Kpw"/>
                             </constraints>
                         </stackView>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ttu-VH-c8j" customClass="GradientView" customModule="Cloudinary_Sample_App" customModuleProvider="target">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ttu-VH-c8j" customClass="GradientView" customModule="Cloudinary_Academy_App" customModuleProvider="target">
                             <rect key="frame" x="264" y="-34" width="227" height="255"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>

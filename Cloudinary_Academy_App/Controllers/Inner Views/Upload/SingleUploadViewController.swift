@@ -16,12 +16,15 @@ class SingleUploadViewController: UIViewController {
     @IBOutlet weak var vwImage: UIView!
     @IBOutlet weak var ivMain: UIImageView!
     @IBOutlet weak var vwOpenGallery: UIView!
+    @IBOutlet weak var lbButton: UILabel!
 
     weak var delegate: UploadChoiceControllerDelegate!
 
     var url: String?
 
-    var cloudinary = CloudinaryHelper.shared.cloudinary
+    var uploadWidget: CLDUploaderWidget!
+
+    var cloudinary = CLDCloudinary(configuration: CLDConfiguration(cloudName: CloudinaryHelper.shared.getUploadCloud()!))
 
     var uploadLoadingView: UploadLoadingView?
 
@@ -36,28 +39,14 @@ class SingleUploadViewController: UIViewController {
     }
 
     private func setMainView() {
-        guard let url = url else {
-            return
-        }
-        if type == .Upload {
-            ivMain.isHidden = false
-            ivMain.cldSetImage(url , cloudinary: self.cloudinary)
-        }
-        if type == .UploadLarge {
-            ivMain.isHidden = true
-            let player = CLDVideoPlayer(url: url)
-                let playerController = AVPlayerViewController()
-
-                playerController.player = player
-                addChild(playerController)
-                playerController.videoGravity = .resizeAspectFill
-                vwImage.addSubview(playerController.view)
-                playerController.view.frame = vwImage.bounds
-                playerController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-                playerController.didMove(toParent: self)
-                player.play()
-        }
-    }
+           guard let url = url else {
+               return
+           }
+           if type == .Upload || type == .UploadWidget {
+               ivMain.isHidden = false
+               ivMain.cldSetImage(url , cloudinary: self.cloudinary)
+           }
+       }
 
     private func setOpenGalleryView() {
         vwOpenGallery.layer.cornerRadius = vwOpenGallery.frame.height / 2
@@ -66,17 +55,21 @@ class SingleUploadViewController: UIViewController {
     }
 
     @objc private func openGalleryClicked() {
-        if imagePicker == nil {
-            imagePicker = UIImagePickerController()
-        }
-        if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum){
-            imagePicker.delegate = self
-            if type == .UploadLarge {
-                imagePicker.mediaTypes = ["public.movie"]
+        if type == .UploadWidget {
+
+        } else {
+            if imagePicker == nil {
+                imagePicker = UIImagePickerController()
             }
-            imagePicker.sourceType = .photoLibrary
-            imagePicker.allowsEditing = false
-            present(imagePicker, animated: true, completion: nil)
+            if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum){
+                imagePicker.delegate = self
+                if type == .UploadLarge {
+                    imagePicker.mediaTypes = ["public.movie"]
+                }
+                imagePicker.sourceType = .photoLibrary
+                imagePicker.allowsEditing = false
+                present(imagePicker, animated: true, completion: nil)
+            }
         }
     }
 
@@ -116,6 +109,20 @@ extension SingleUploadViewController:  UINavigationControllerDelegate, UIImagePi
             ivMain.image = nil
             uploadImage(image)
         }
+    }
+}
+
+extension SingleUploadViewController: CLDUploaderWidgetDelegate {
+    func uploadWidget(_ widget: CLDUploaderWidget, willCall uploadRequests: [CLDUploadRequest]) {
+        addUploadingView()
+      uploadRequests[0].response( { response, error in
+          self.ivMain.cldSetImage(response!.secureUrl!, cloudinary: self.cloudinary)
+          self.removeUploadingView()
+      } )
+    }
+    func widgetDidCancel(_ widget: CLDUploaderWidget) {
+    }
+    func uploadWidgetDidDismiss() {
     }
 }
 

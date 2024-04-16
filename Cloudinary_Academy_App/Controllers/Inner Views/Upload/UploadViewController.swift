@@ -34,7 +34,7 @@ class UploadViewController: UIViewController {
 
     private func setUploadView() {
         vwUpload.setTitle(title: "Upload")
-        vwUpload.setSubtitle(subtitle: "Everything starts when you uploads a file")
+        vwUpload.setSubtitle(subtitle: "Everything starts when you upload a file")
 
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(uploadClicked))
         vwUpload.addGestureRecognizer(tapGesture)
@@ -42,7 +42,7 @@ class UploadViewController: UIViewController {
 
     private func setPreProcessView() {
         vwPreProcess.setTitle(title: "Pre Process Image")
-        vwPreProcess.setSubtitle(subtitle: "Modify your image before uploading it")
+        vwPreProcess.setSubtitle(subtitle: "Modify your image before upload")
 
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(PreProcessClicked))
         vwPreProcess.addGestureRecognizer(tapGesture)
@@ -50,7 +50,7 @@ class UploadViewController: UIViewController {
 
     private func setFetchUploadView() {
         vwFetchUpload.setTitle(title: "Fetch Upload")
-        vwFetchUpload.setSubtitle(subtitle: "Upload image from any URL to your cloud")
+        vwFetchUpload.setSubtitle(subtitle: "Upload an image from any URL")
 
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(fetchUploadClicked))
         vwFetchUpload.addGestureRecognizer(tapGesture)
