@@ -75,13 +75,13 @@ class TransformViewController: UIViewController {
             addChild(currentController)
             vwContainer.addSubview(currentController.view)
             currentController.didMove(toParent: self)
-            (currentController as! RevealImageController).setMainImageView(rightImage: CloudinaryHelper.shared.cloudinary.createUrl().generate("Demo%20app%20content/recolor-tshirt-5_omapls"), leftImage: CloudinaryHelper.shared.cloudinary.createUrl().setTransformation(CLDTransformation().setEffect("gen_recolor:prompt_t-shirt;to-color_ffc0cb")).generate("Demo%20app%20content/recolor-tshirt-5_omapls"))
+            (currentController as! RevealImageController).setMainImageView(rightImage: CloudinaryHelper.shared.cloudinary.createUrl().setTransformation(CLDTransformation().setEffect("gen_recolor:prompt_t-shirt;to-color_ffc0cb")).generate("Demo%20app%20content/recolor-tshirt-5_omapls") , leftImage: CloudinaryHelper.shared.cloudinary.createUrl().generate("Demo%20app%20content/recolor-tshirt-5_omapls"))
             collectionController.selectedCellIndex = 3
         }
     }
 
     private func setCollectionView() {
-        collectionController = TransformCollectionController(self)
+        collectionController = TransformCollectionController(delegate: self)
         cvMain.delegate = collectionController
         cvMain.dataSource = collectionController
 
@@ -116,8 +116,6 @@ extension TransformViewController: TransformCollectionDelegate {
         default:
             break
         }
-
-        cvMain.reloadData()
     }
 }
 
