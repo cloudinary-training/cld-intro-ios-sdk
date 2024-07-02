@@ -67,7 +67,7 @@ class TransformViewController: UIViewController {
             addChild(currentController)
             vwContainer.addSubview(currentController.view)
             currentController.didMove(toParent: self)
-            (currentController as! RevealImageController).setMainImageView(rightImage: CloudinaryHelper.shared.cloudinary.createUrl().generate("Demo%20app%20content/bgr-furniture-1_isnptj"), leftImage: CloudinaryHelper.shared.cloudinary.createUrl().setTransformation(CLDTransformation().setEffect("background_removal")).generate("Demo%20app%20content/bgr-furniture-1_isnptj"))
+            (currentController as! RevealImageController).setMainImageView(rightImage:CloudinaryHelper.shared.cloudinary.createUrl().setTransformation(CLDTransformation().setEffect("background_removal")).generate("Demo%20app%20content/bgr-furniture-1_isnptj"), leftImage: CloudinaryHelper.shared.cloudinary.createUrl().generate("Demo%20app%20content/bgr-furniture-1_isnptj"))
             collectionController.selectedCellIndex = 2
         case .ReColor:
             currentController = UIStoryboard(name: "RevealImage", bundle: nil).instantiateViewController(identifier: "RevealImageController") as! RevealImageController
