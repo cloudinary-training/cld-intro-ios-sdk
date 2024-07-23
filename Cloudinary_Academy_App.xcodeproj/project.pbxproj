@@ -63,6 +63,16 @@
 		B665FED52B3D776300452FC6 /* Widgets.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B665FED42B3D776300452FC6 /* Widgets.storyboard */; };
 		B672A83C2B9059750039F5CF /* Cloudinary in Frameworks */ = {isa = PBXBuildFile; productRef = B672A83B2B9059750039F5CF /* Cloudinary */; };
 		B6838E4E2AB961BD00B972D7 /* car-film.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = B6838E4D2AB961B800B972D7 /* car-film.mp4 */; };
+		B689426A2C4FA82D00F0A392 /* SingleUploadCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68942692C4FA82D00F0A392 /* SingleUploadCell.swift */; };
+		B689426D2C4FA8CD00F0A392 /* SingleUploadCollectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B689426C2C4FA8CD00F0A392 /* SingleUploadCollectionController.swift */; };
+		B689426F2C4FA95500F0A392 /* SingleUploadCollectionLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = B689426E2C4FA95500F0A392 /* SingleUploadCollectionLayout.swift */; };
+		B68942712C4FA98400F0A392 /* SingleUploadPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68942702C4FA98400F0A392 /* SingleUploadPreview.swift */; };
+		B68942742C4FAA3300F0A392 /* AssetItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68942732C4FAA3300F0A392 /* AssetItems.swift */; };
+		B68942762C4FAA4E00F0A392 /* AssetItems+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68942752C4FAA4E00F0A392 /* AssetItems+CoreDataProperties.swift */; };
+		B68942782C4FAA6700F0A392 /* AssetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68942772C4FAA6700F0A392 /* AssetModel.swift */; };
+		B689427B2C4FAAC300F0A392 /* AssetModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B68942792C4FAAC300F0A392 /* AssetModel.xcdatamodeld */; };
+		B689427D2C4FAAE300F0A392 /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B689427C2C4FAAE300F0A392 /* CoreDataHelper.swift */; };
+		B689427F2C4FABCA00F0A392 /* SingleUploadPreview.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B689427E2C4FABCA00F0A392 /* SingleUploadPreview.storyboard */; };
 		B697FB032B0F663D00E3C432 /* MainPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B697FAFD2B0F663D00E3C432 /* MainPageController.swift */; };
 		B697FB042B0F663D00E3C432 /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B697FAFE2B0F663D00E3C432 /* VideoViewController.swift */; };
 		B697FB052B0F663D00E3C432 /* video_links.plist in Resources */ = {isa = PBXBuildFile; fileRef = B697FB002B0F663D00E3C432 /* video_links.plist */; };
@@ -151,6 +161,16 @@
 		B665FED12B3D746500452FC6 /* InnerUploadFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InnerUploadFrame.swift; sourceTree = "<group>"; };
 		B665FED42B3D776300452FC6 /* Widgets.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Widgets.storyboard; sourceTree = "<group>"; };
 		B6838E4D2AB961B800B972D7 /* car-film.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "car-film.mp4"; sourceTree = "<group>"; };
+		B68942692C4FA82D00F0A392 /* SingleUploadCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleUploadCell.swift; sourceTree = "<group>"; };
+		B689426C2C4FA8CD00F0A392 /* SingleUploadCollectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleUploadCollectionController.swift; sourceTree = "<group>"; };
+		B689426E2C4FA95500F0A392 /* SingleUploadCollectionLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleUploadCollectionLayout.swift; sourceTree = "<group>"; };
+		B68942702C4FA98400F0A392 /* SingleUploadPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleUploadPreview.swift; sourceTree = "<group>"; };
+		B68942732C4FAA3300F0A392 /* AssetItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetItems.swift; sourceTree = "<group>"; };
+		B68942752C4FAA4E00F0A392 /* AssetItems+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AssetItems+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		B68942772C4FAA6700F0A392 /* AssetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetModel.swift; sourceTree = "<group>"; };
+		B689427A2C4FAAC300F0A392 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		B689427C2C4FAAE300F0A392 /* CoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
+		B689427E2C4FABCA00F0A392 /* SingleUploadPreview.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SingleUploadPreview.storyboard; sourceTree = "<group>"; };
 		B697FAFD2B0F663D00E3C432 /* MainPageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainPageController.swift; sourceTree = "<group>"; };
 		B697FAFE2B0F663D00E3C432 /* VideoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
 		B697FB002B0F663D00E3C432 /* video_links.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = video_links.plist; sourceTree = "<group>"; };
@@ -212,6 +232,7 @@
 		B614885B2AAF3AE000002289 /* Cloudinary_Academy_App */ = {
 			isa = PBXGroup;
 			children = (
+				B68942722C4FAA2000F0A392 /* Core Data */,
 				B6BD44CB2B458A0A00DD6AA6 /* Helpers */,
 				B63F369D2B3BFEF800A82C49 /* Custom Views */,
 				B6838E4C2AB961AF00B972D7 /* Resources */,
@@ -387,6 +408,7 @@
 				B64036F12B4FF7130018A023 /* SingleUpload.storyboard */,
 				B621F02D2B691E6000095019 /* UploadDoesNotExist.storyboard */,
 				B6EEAD692B692F9A000A745E /* UploadChoice.storyboard */,
+				B689427E2C4FABCA00F0A392 /* SingleUploadPreview.storyboard */,
 			);
 			path = Upload;
 			sourceTree = "<group>";
@@ -435,6 +457,7 @@
 		B665FED02B3D745B00452FC6 /* Upload */ = {
 			isa = PBXGroup;
 			children = (
+				B689426B2C4FA8BC00F0A392 /* Collection */,
 				B69FA1E52AB87016001D361F /* UploadViewController.swift */,
 				B621F02F2B69203E00095019 /* Upload Does Not Exist */,
 				B64036EF2B4FF1590018A023 /* SingleUploadViewController.swift */,
@@ -461,6 +484,29 @@
 				B6838E4D2AB961B800B972D7 /* car-film.mp4 */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		B689426B2C4FA8BC00F0A392 /* Collection */ = {
+			isa = PBXGroup;
+			children = (
+				B68942692C4FA82D00F0A392 /* SingleUploadCell.swift */,
+				B689426C2C4FA8CD00F0A392 /* SingleUploadCollectionController.swift */,
+				B689426E2C4FA95500F0A392 /* SingleUploadCollectionLayout.swift */,
+				B68942702C4FA98400F0A392 /* SingleUploadPreview.swift */,
+			);
+			path = Collection;
+			sourceTree = "<group>";
+		};
+		B68942722C4FAA2000F0A392 /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				B68942792C4FAAC300F0A392 /* AssetModel.xcdatamodeld */,
+				B68942732C4FAA3300F0A392 /* AssetItems.swift */,
+				B68942752C4FAA4E00F0A392 /* AssetItems+CoreDataProperties.swift */,
+				B68942772C4FAA6700F0A392 /* AssetModel.swift */,
+				B689427C2C4FAAE300F0A392 /* CoreDataHelper.swift */,
+			);
+			path = "Core Data";
 			sourceTree = "<group>";
 		};
 		B697FAFB2B0F662A00E3C432 /* Video Feed */ = {
@@ -672,6 +718,7 @@
 				B61EFF732B8F6751006F267C /* IntegrateAI.storyboard in Resources */,
 				B61488692AAF3AE100002289 /* LaunchScreen.storyboard in Resources */,
 				B665FED52B3D776300452FC6 /* Widgets.storyboard in Resources */,
+				B689427F2C4FABCA00F0A392 /* SingleUploadPreview.storyboard in Resources */,
 				B697FB052B0F663D00E3C432 /* video_links.plist in Resources */,
 				B63AA9142B70D02C008B4FA8 /* GoogleService-Info.plist in Resources */,
 				B621F0262B69085900095019 /* SmartCropping.storyboard in Resources */,
@@ -712,13 +759,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				B64036F72B50138C0018A023 /* UploadLoadingView.swift in Sources */,
+				B689427D2C4FAAE300F0A392 /* CoreDataHelper.swift in Sources */,
 				B63F36A82B3C1A5A00A82C49 /* Toolbar.swift in Sources */,
 				B621F01C2B69002A00095019 /* DeliveryTransformCollectionController.swift in Sources */,
+				B68942762C4FAA4E00F0A392 /* AssetItems+CoreDataProperties.swift in Sources */,
 				B6BD44CD2B458A1900DD6AA6 /* AnimationHelper.swift in Sources */,
 				B62825072B863342006BA8AF /* NormalizingProductAssetsViewController.swift in Sources */,
 				B621F0242B69080100095019 /* SmartCroppingController.swift in Sources */,
 				B62825012B8618FD006BA8AF /* UseCaseCollectionCell.swift in Sources */,
 				B69FA1E62AB87016001D361F /* UploadViewController.swift in Sources */,
+				B689426D2C4FA8CD00F0A392 /* SingleUploadCollectionController.swift in Sources */,
 				B6BD44D32B46D9C100DD6AA6 /* BaseViewController.swift in Sources */,
 				B61488932AB06CA800002289 /* TransformViewController.swift in Sources */,
 				B63F36AD2B3C2C0500A82C49 /* ToolbarItem.swift in Sources */,
@@ -730,9 +780,11 @@
 				B61AFA602B87204800991A57 /* ConditionalProductViewController.swift in Sources */,
 				B69FA1E02AB866A0001D361F /* FileUtils.swift in Sources */,
 				B63AA90C2B6F98B0008B4FA8 /* VideoSocialOverlaysController.swift in Sources */,
+				B689426F2C4FA95500F0A392 /* SingleUploadCollectionLayout.swift in Sources */,
 				B665FECB2B3D567300452FC6 /* DeliveryViewController.swift in Sources */,
 				B697FB062B0F663D00E3C432 /* VideoHelper.swift in Sources */,
 				B6BD44DD2B4D1FDD00DD6AA6 /* ImageHelper.swift in Sources */,
+				B68942742C4FAA3300F0A392 /* AssetItems.swift in Sources */,
 				B614885D2AAF3AE000002289 /* AppDelegate.swift in Sources */,
 				B64F9F572B68FE7200762F97 /* TransformationCell.swift in Sources */,
 				B69D67182B6F82D400DA3C89 /* VideoFeedViewController.swift in Sources */,
@@ -742,8 +794,11 @@
 				B6BD44D72B4BD1A100DD6AA6 /* TransformCollectionCell.swift in Sources */,
 				B6BAAA342AB9730D0012D8A8 /* UploadWidgetViewController.swift in Sources */,
 				B61EFF752B8F6784006F267C /* IntegrateAIViewController.swift in Sources */,
+				B68942712C4FA98400F0A392 /* SingleUploadPreview.swift in Sources */,
 				B621F02B2B6919D600095019 /* RevealImageController.swift in Sources */,
 				B640F8252B624E4800173CB9 /* WidgetsViewController.swift in Sources */,
+				B689427B2C4FAAC300F0A392 /* AssetModel.xcdatamodeld in Sources */,
+				B689426A2C4FA82D00F0A392 /* SingleUploadCell.swift in Sources */,
 				B61488992AB07B6500002289 /* CloudinaryHelper.swift in Sources */,
 				B6EEAD6C2B692FB1000A745E /* UploadChoiceController.swift in Sources */,
 				B63F369F2B3BFF0300A82C49 /* GradientView.swift in Sources */,
@@ -751,6 +806,7 @@
 				B62824FC2B85EC11006BA8AF /* UseCasesViewController.swift in Sources */,
 				B69D671A2B6F842C00DA3C89 /* VideoFeedController.swift in Sources */,
 				B62824FE2B86175F006BA8AF /* UseCasesCollectionController.swift in Sources */,
+				B68942782C4FAA6700F0A392 /* AssetModel.swift in Sources */,
 				B6EEAD952B6A7F63000A745E /* VideoFeedCollectionController.swift in Sources */,
 				B69FA1E22AB86F4D001D361F /* Double+Extension.swift in Sources */,
 				B665FED22B3D746500452FC6 /* InnerUploadFrame.swift in Sources */,
@@ -913,6 +969,7 @@
 				DEVELOPMENT_TEAM = 3TR999VVAS;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Cloudinary_Academy_App/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Cloudinary;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -941,6 +998,7 @@
 				DEVELOPMENT_TEAM = 3TR999VVAS;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Cloudinary_Academy_App/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Cloudinary;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -1000,6 +1058,19 @@
 			productName = Cloudinary;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		B68942792C4FAAC300F0A392 /* AssetModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				B689427A2C4FAAC300F0A392 /* Model.xcdatamodel */,
+			);
+			currentVersion = B689427A2C4FAAC300F0A392 /* Model.xcdatamodel */;
+			path = AssetModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = B61488512AAF3AE000002289 /* Project object */;
 }

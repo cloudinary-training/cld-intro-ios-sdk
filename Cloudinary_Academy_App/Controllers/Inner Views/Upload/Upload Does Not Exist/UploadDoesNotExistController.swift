@@ -11,13 +11,12 @@ import Cloudinary
 
 class UploadDoesNotExistController: UIViewController {
     @IBOutlet weak var vwUploadContainer: UIView!
-        @IBOutlet weak var vwUpload: UIView!
-        @IBOutlet weak var aiLoading: UIActivityIndicatorView!
-        @IBOutlet weak var lbUploadButton: UILabel!
-        @IBOutlet weak var lbUploadContainer: UILabel!
+    @IBOutlet weak var vwUpload: UIView!
+    @IBOutlet weak var aiLoading: UIActivityIndicatorView!
+    @IBOutlet weak var lbUploadButton: UILabel!
+    @IBOutlet weak var lbUploadContainer: UILabel!
 
     private var imagePicker: UIImagePickerController!
-
     weak var delegate: UploadChoiceControllerDelegate!
 
     var uploadWidget: CLDUploaderWidget!
@@ -28,9 +27,14 @@ class UploadDoesNotExistController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        setUploadImageView()
-        if type == .UploadLarge {
+        switch type {
+        case .Upload:
+            break
+        case .UploadLarge:
             lbUploadButton.text = "Upload Video"
+            lbUploadContainer.text = "Upload your video now and let the magic begin!"
+        case .UploadWidget:
+            break
         }
     }
 
@@ -66,51 +70,54 @@ class UploadDoesNotExistController: UIViewController {
     }
 
     private func openUploadWidget() {
-          let configuration = CLDWidgetConfiguration(
-            uploadType: CLDUploadType(signed: false, preset: "ios_sample"))
+        let configuration = CLDWidgetConfiguration(
+          uploadType: CLDUploadType(signed: false, preset: "ios_sample"))
 
-          uploadWidget = CLDUploaderWidget(
-            cloudinary: cloudinary,
-            configuration: configuration,
-            images: nil,
-            delegate: self)
+        uploadWidget = CLDUploaderWidget(
+          cloudinary: cloudinary,
+          configuration: configuration,
+          images: nil,
+          delegate: self)
 
-          uploadWidget.presentWidget(from: self)
-      }
+        uploadWidget.presentWidget(from: self)
+    }
 
-      private func showUploadingView() {
-              vwUploadContainer.isHidden = true
-              aiLoading.isHidden = false
-      }
+    private func showUploadingView() {
+            vwUploadContainer.isHidden = true
+            aiLoading.isHidden = false
+    }
 
-      private func hideUploadingView() {
-          self.aiLoading.isHidden = true
-      }
+    private func hideUploadingView() {
+        self.aiLoading.isHidden = true
+    }
 
     func uploadImage(_ image: UIImage) {
         showUploadingView()
-        vwUploadContainer.isHidden = true
-        aiLoading.isHidden = false
         let data = image.pngData()
         cloudinary.createUploader().upload(data: data!, uploadPreset: "ios_sample", completionHandler:  { response, error in
-            DispatchQueue.main.async {
-                self.delegate.switchToController(.UploadExist, url: response?.secureUrl)
-                self.aiLoading.isHidden = true
-            }
-        })
+                    guard let response = response else {
+                        return
+                    }
+                    CoreDataHelper.shared.insertData(AssetModel(deliveryType: response.type ?? "upload", assetType: response.resourceType ?? "image", transformation: "", publicId: response.publicId ?? "", url: response.secureUrl ?? ""))
+
+                    DispatchQueue.main.async {
+                        self.delegate.switchToController(.UploadExist, url: response.secureUrl)
+                        self.hideUploadingView()
+                    }
+                })
     }
 
     func uploadVideo(_ url: NSURL) {
-           showUploadingView()
-           let params = CLDUploadRequestParams()
-           params.setResourceType("video")
-           cloudinary.createUploader().upload(url: url as URL, uploadPreset: "ios_sample", params: params, completionHandler:  { response, error in
-               DispatchQueue.main.async {
-                   self.delegate.switchToController(.UploadExist, url: response?.secureUrl)
-                   self.hideUploadingView()
-               }
-           })
-       }
+        showUploadingView()
+        let params = CLDUploadRequestParams()
+        params.setResourceType("video")
+        cloudinary.createUploader().upload(url: url as URL, uploadPreset: "ios_sample", params: params, completionHandler:  { response, error in
+            DispatchQueue.main.async {
+                self.delegate.switchToController(.UploadExist, url: response?.secureUrl)
+                self.hideUploadingView()
+            }
+        })
+    }
 }
 
 extension UploadDoesNotExistController:  UINavigationControllerDelegate, UIImagePickerControllerDelegate {
@@ -124,7 +131,6 @@ extension UploadDoesNotExistController:  UINavigationControllerDelegate, UIImage
         }
     }
 }
-
 extension UploadDoesNotExistController: CLDUploaderWidgetDelegate {
     func uploadWidget(_ widget: CLDUploaderWidget, willCall uploadRequests: [CLDUploadRequest]) {
         DispatchQueue.main.async {

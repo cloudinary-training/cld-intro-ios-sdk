@@ -43,13 +43,13 @@ class UploadWidgetViewController: UIViewController {
 
     @objc func openUploadWidget() {
         let configuration = CLDWidgetConfiguration(
-          uploadType: CLDUploadType(signed: false, preset: "ios_sample"))
+            uploadType: CLDUploadType(signed: false, preset: "ios_sample"))
 
         uploadWidget = CLDUploaderWidget(
-          cloudinary: cloudinary,
-          configuration: configuration,
-          images: nil,
-          delegate: self)
+            cloudinary: cloudinary,
+            configuration: configuration,
+            images: nil,
+            delegate: self)
 
         uploadWidget.presentWidget(from: self)
     }
@@ -71,17 +71,18 @@ class UploadWidgetViewController: UIViewController {
     private func openNoCloudController() {
         noCloudController = UIStoryboard(name: "UploadNoCloud", bundle: nil).instantiateViewController(identifier: "UploadNoCloudController")
         (noCloudController as! UploadNoCloudController).delegate = self
-//            currentController.modalPresentationStyle = .fullScreen
+        //            currentController.modalPresentationStyle = .fullScreen
         self.present(noCloudController, animated: true)
     }
 }
 
 extension UploadWidgetViewController: CLDUploaderWidgetDelegate {
     func uploadWidget(_ widget: CLDUploaderWidget, willCall uploadRequests: [CLDUploadRequest]) {
-      uploadRequests[0].response( { response, error in
-          self.hideUploadingView()
-          self.ivMain.cldSetImage(response!.secureUrl!, cloudinary: self.cloudinary)
-      } )
+        showUploadingView()
+        uploadRequests[0].response( { response, error in
+            self.hideUploadingView()
+            self.ivMain.cldSetImage(response!.secureUrl!, cloudinary: self.cloudinary)
+        } )
     }
     func widgetDidCancel(_ widget: CLDUploaderWidget) {
     }

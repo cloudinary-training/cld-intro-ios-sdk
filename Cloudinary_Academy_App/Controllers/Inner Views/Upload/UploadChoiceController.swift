@@ -26,7 +26,11 @@ class UploadChoiceController: UIViewController {
         if CloudinaryHelper.shared.getUploadCloud() == nil {
             setContainerView(.NoCloudName)
         } else {
-            setContainerView(.NoUpload)
+            if CoreDataHelper.shared.fetchData()?.count ?? 0 <= 0 {
+                setContainerView(.NoUpload)
+            } else {
+                setContainerView(.UploadExist)
+            }
         }
     }
 
@@ -64,7 +68,6 @@ class UploadChoiceController: UIViewController {
         currentController?.view.removeFromSuperview()
         currentController?.removeFromParent()
     }
-
 }
 
 extension UploadChoiceController: UploadChoiceControllerDelegate {

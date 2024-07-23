@@ -4,7 +4,7 @@
 //
 //  Created by Adi Mizrahi on 11/01/2024.
 //
- 
+
 import Foundation
 import UIKit
 
@@ -25,6 +25,7 @@ class UploadLoadingView: UIView {
         guard let view = loadViewFromNib() else { return }
         view.frame = bounds
         view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        view.layer.cornerRadius = 4
         addSubview(view)
     }
 
@@ -42,4 +43,3 @@ class UploadLoadingView: UIView {
     }
 
 }
-
