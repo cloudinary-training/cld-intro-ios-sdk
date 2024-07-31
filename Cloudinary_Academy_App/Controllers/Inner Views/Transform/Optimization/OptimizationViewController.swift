@@ -73,10 +73,10 @@ class OptimizationViewController: UIViewController {
         var url: String!
         switch type {
         case .Optimization:
-            url = cloudinary.createUrl().setTransformation(CLDTransformation().setQuality("auto").setFetchFormat("heic").setDpr("auto").setWidth(0.8).setCrop("scale")).generate(publicId)
+            url = cloudinary.createUrl().setTransformation(CLDTransformation().setQuality("auto").setFetchFormat("auto").setDpr("auto").setWidth(0.8).setCrop("scale")).generate(publicId)
             ivOptimized.cldSetImage(url!, cloudinary: cloudinary)
         case .FetchUpload:
-            url = cloudinary.createUrl().setType("fetch").setTransformation(CLDTransformation().setQuality("auto").setFetchFormat("heic").setDpr("auto").setWidth(0.8).setCrop("scale")).generate(publicId)
+            url = cloudinary.createUrl().setType("fetch").setTransformation(CLDTransformation().setQuality("auto").setFetchFormat("auto").setDpr("auto").setWidth(0.8).setCrop("scale")).generate(publicId)
             ivOptimized.cldSetImage(url!, cloudinary: cloudinary)
         case .PreProcess:
             let preprocessChain = CLDImagePreprocessChain()
@@ -105,10 +105,10 @@ class OptimizationViewController: UIViewController {
         switch type {
         case .Optimization:
             originalUrl = cloudinary.createUrl().generate(publicId)!
-            optimizedUrl = cloudinary.createUrl().setTransformation(CLDTransformation().setQuality("auto").setFetchFormat("heic").setDpr("auto").setWidth(0.8).setCrop("scale")).generate(publicId)!
+            optimizedUrl = cloudinary.createUrl().setTransformation(CLDTransformation().setQuality("auto").setFetchFormat("auto").setDpr("auto").setWidth(0.8).setCrop("scale")).generate(publicId)!
         case .FetchUpload:
             originalUrl = cloudinary.createUrl().setType("fetch").generate(publicId)!
-            optimizedUrl = cloudinary.createUrl().setType("fetch").setTransformation(CLDTransformation().setQuality("auto").setFetchFormat("heic").setDpr("auto").setWidth(0.8).setCrop("scale")).generate(publicId)!
+            optimizedUrl = cloudinary.createUrl().setType("fetch").setTransformation(CLDTransformation().setQuality("auto").setFetchFormat("auto").setDpr("auto").setWidth(0.8).setCrop("scale")).generate(publicId)!
         case .PreProcess:
             originalUrl = cloudinary.createUrl().generate("gfynghsdjtgmznwx1t0d")!
             optimizedUrl = cloudinary.createUrl().generate(publicId)
