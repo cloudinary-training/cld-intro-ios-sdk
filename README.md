@@ -114,7 +114,7 @@ Drag the built `.xcframework` bundles from `Carthage/Build` into the `Frameworks
 * Add https://github.com/cloudinary/cloudinary_ios.git
 * Select "Up to Next Major" with "5.0.0"
 
-### Working with the Cloudinary iOS SDK Manually
+## Working with the Cloudinary iOS SDK Manually
 
 If you prefer not use a dependency manager, you can add Cloudinary manually by adding it as a submodule to your project:
 
