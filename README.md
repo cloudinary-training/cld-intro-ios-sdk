@@ -9,16 +9,19 @@ The information below corresponds with the [slides](https://cloudinary-marketing
 Course Topics:
 - Introduction
   - Mobile Development
+  - iOS Course App
   - Environment Setup
-- Upload
-  - Upload
-  - Cloudinary Upload Widget
-  - Cloudinary Image Widget
-  - Pre Processing Image 
-- Delivery
-  - Transformations
-  - Complex Transformations
+- Asset Delivery
   - Optimizations
+  - Transformations
+- Upload
+  - Upload Presets
+  - Uploading an Asset
+  - Pre-Processing
+  - Fetch
+- Widgets
+  - Cloudinary Image Widget
+  - Cloudinary Upload Widget
 - Video
   - Cloudinary Native Video Player
   - Video Feed 
