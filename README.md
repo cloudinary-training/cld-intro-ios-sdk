@@ -56,6 +56,82 @@ swift-driver version: 1.87.3 Apple Swift version 5.9.2 (swiftlang-5.9.2.2.56 cla
 Target: arm64-apple-macosx14.0
 ```
 
+## Installation
+### CocoaPods
+
+[CocoaPods](http://cocoapods.org) is a dependency manager for Swift and Objective-C Cocoa projects. 
+To install CocoaPods:
+
+```bash
+sudo gem install cocoapods
+```
+If you don't have a `Podfile` in your project yet, add it by running the command:
+```bash
+pod init
+```
+
+Add the Cloudinary SDK to your `Podfile`:
+
+```ruby
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '9.0'
+use_frameworks!
+
+target 'MyApp' do
+  pod 'Cloudinary', '~> 5.0'
+end
+```
+
+Then, run the command:
+
+```bash
+pod install
+```
+
+### Carthage
+
+Create `Cartfile`
+```bash
+touch Cartfile
+```
+
+Open `Cartfile` and enter the following line
+
+```bash
+github "cloudinary/cloudinary_ios" ~> 5.0
+```
+
+Then, run the command:
+
+```bash
+carthage update --use-xcframeworks
+```
+A `Cartfile.resolved` file and a `Carthage` directory will appear in the same directory where your `.xcodeproj` or `.xcworkspace` is.
+Drag the built `.xcframework` bundles from `Carthage/Build` into the `Frameworks and Libraries` section of your application’s Xcode project.
+
+### Swift Package Manager
+* File > Add Packages... >
+* Add https://github.com/cloudinary/cloudinary_ios.git
+* Select "Up to Next Major" with "5.0.0"
+
+### Working with the Cloudinary iOS SDK Manually
+
+If you prefer not use a dependency manager, you can add Cloudinary manually by adding it as a submodule to your project:
+
+Open Terminal and navigate to your project's top level directory.
+
+If your project is not initialized as a git repository, run the command:
+
+```bash
+git init
+```
+
+To add cloudinary as a git submodule, run the command:
+
+```bash
+git submodule add https://github.com/cloudinary/cloudinary_ios.git
+```
+
 ### Providing Cloudinary Credentials
 
 You will need to [register for a free Cloudinary account](https://cloudinary.com/users/register/free) to work along with this training.
@@ -74,9 +150,6 @@ CLOUD_NAME and API_KEY can be revealed without creating any security issues, but
 Don't check it into GitHub and don't include it in blog posts.
 - For this course, you only need your cloud name, so there won't be any risk of security. 
 
-## Assets
-All local assets used in training, are located in the `XYZ` directory
-
 ---
 ## Resources
 
@@ -91,6 +164,3 @@ All local assets used in training, are located in the `XYZ` directory
 [Support Request](https://support.cloudinary.com/hc/en-us/requests/new)
 
 [Support Email support@cloudinary.com](mailto:support@cloudinary.com)
-
-## Asset Credits
--
